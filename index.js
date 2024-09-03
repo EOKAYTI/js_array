@@ -106,21 +106,54 @@ document.getElementById("btnSapXepTangDan").onclick = function () {
 document.getElementById("btnSoNguyenToDauTien").onclick = function () {
   let soNguyenTo;
   for (let i = 0; i < arrNumbers.length; i++) {
-    if (arrNumbers[i] == 2) {
+    if (arrNumbers[is] == 2) {
       soNguyenTo = 2;
     }
   }
   document.getElementById("kqSoNguyenToDauTien").innerHTML = `${soNguyenTo}`;
 };
 
-// Bài 8: Đếm số nguyên
+// Bài 9: Đếm số nguyên
+let arrSoNguyen = [];
 document.getElementById("btnThemSoNguyen").onclick = function () {
   let soNguyen = document.getElementById("txtNhapSoNguyen").value * 1;
-  let arrSoNguyen = [];
-  for (let i = 0; i < arrSoNguyen.length; i++) {
-    arrSoNguyen.push(soNguyen);
-  }
-  console.log(arrSoNguyen);
 
-  document.getElementById("kqThemSoNguyen").innerHTML = `${arrSoNguyen}`;
+  arrSoNguyen.push(soNguyen);
+
+  document.getElementById("kqThemSoNguyen").innerHTML = `${arrSoNguyen}, `;
+};
+
+document.getElementById("btnDemSoNguyen").onclick = function () {
+  let dem = 0;
+  for (let i = 0; i < arrSoNguyen.length; i++) {
+    if (Number.isInteger(arrNumbers[i])) {
+      dem++;
+    }
+  }
+
+  document.getElementById(
+    "kqDemSoNguyen"
+  ).innerHTML = `Số lượng số nguyên: ${dem}`;
+};
+
+// Bài 10: So sánh số lượng số âm và dương
+document.getElementById("btnSoSanh").onclick = function () {
+  let soAm = 0;
+  let soDuong = 0;
+
+  for (let i = 0; i < arrNumbers.length; i++) {
+    if (arrNumbers[i] > 0) {
+      soDuong++;
+    } else if (arrNumbers[i] < 0) {
+      soAm++;
+    }
+  }
+
+  if (soDuong > soAm) {
+    document.getElementById("kqSoSanh").innerHTML = `Số dương > Số âm`;
+  } else if (soDuong == soAm) {
+    document.getElementById("kqSoSanh").innerHTML = `Số dương = Số âm`;
+  } else {
+    document.getElementById("kqSoSanh").innerHTML = `Số dương < Số âm`;
+  }
 };
