@@ -48,11 +48,13 @@ document.getElementById("btnSoNhoNhat").onclick = function () {
 
 // Bài 4: Tìm số dương nhỏ nhất
 document.getElementById("btnSoDuongNhoNhat").onclick = function () {
-  let min2 = arrNumbers[0];
+  let min2 = 0;
 
   for (let i = 0; i < arrNumbers.length; i++) {
-    if (arrNumbers[i] < min2) {
-      min2 = arrNumbers[i];
+    if (arrNumbers[i] > 0) {
+      if (arrNumbers[i] < min2) {
+        min2 = arrNumbers[i];
+      }
     }
   }
 
